@@ -8,5 +8,4 @@
 * [Vim](Vim/README.md)
 * [Security](Security/README.md)
 * [References](References/README.md)
-* [Kaishi](kaishi.md)
 
