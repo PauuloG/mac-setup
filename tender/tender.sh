@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-#This is the kaishi script for setting up your laptop
-set -e
+#This is the tender script for setting up your laptop
+set -xe
 
 echo "Upgrade Xcode"
-xcode-select --install
+#xcode-select --install
 
 sudo -v
 
@@ -66,7 +66,7 @@ brew link openssl --force
 
 #Install brew cask
 pretty_print "Installing cask to install apps"
-	brew install caskroom/cask/brew-cask
+	brew install cask
 
 pretty_print "Installing launchrocket to manage your homebrew formulas like a champ!"
 	brew cask install launchrocket
@@ -74,13 +74,11 @@ pretty_print "Installing launchrocket to manage your homebrew formulas like a ch
 #Install apps
 apps=(
     appcleaner
-    betterzipql
     dashlane
     dropbox
     flux
     franz
     google-chrome
-    google-drive
     iterm2
     qlcolorcode
     qlmarkdown
@@ -97,17 +95,17 @@ apps=(
     transmission
     transmit
     vlc
-    vscode
+    visual-studio-code
 )
 
 for app in "${apps[@]}"
 do
-	printf "Installing %s\n" $app
-	echo "Type Y to install: \c"
-	read line
-	if [ "$line" = Y ] || [ "$line" = y ]; then
-		brew cask install --appdir="/Applications" $app
-	fi
+	#printf "Installing %s\n" $app
+	#echo "Type Y to install: \c"
+	#read line
+	#if [ "$line" = Y ] || [ "$line" = y ]; then
+	brew cask install --appdir="/Applications" $app || 0
+	#fi
 done
 
 brew tap caskroom/fonts
@@ -141,15 +139,12 @@ brew cask install ${fonts[@]}
 
 #Install and config git
 echo "Git Config"
-echo "\n"
-which git
 
 git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_USER_EMAIL
 
 #Generate github ssh keys
 echo "Generating SSH keys"
-echo "\n"
 ssh-keygen -t rsa -b 4096 -C  "$GIT_USER_EMAIL" -f ~/.ssh/id_rsa
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
@@ -173,7 +168,8 @@ chsh -s /usr/local/bin/zsh
 #Now let's go for our ZSH config round
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 echo DEFAULT_USER=$DEFAULT_USER >> ~/.zshrc
-echo plugins=(git colored-man colorize github brew osx zsh-syntax-highlighting zsh-autosuggestions docker) >> ~/.zshrc
+echo "plugins=(git colored-man colorize github brew osx zsh-syntax-highlighting zsh-autosuggestions docker)" >> ~/.zshrc
+echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 pretty_print "We are done!...everthing looks good!"
 
 curl -L https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf > /Library/Fonts/DroidSansMonoPowerline.otf
