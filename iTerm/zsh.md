@@ -4,26 +4,6 @@ We'll install `zsh` for all the features offered by `oh-my-zsh`. The installatio
 
 ## Zsh
 
-Install zsh and zsh-completions using Homebrew:
-
-```
-$ brew install zsh zsh-completions
-```
-
-At this point you can customize your shell by using one of two frameworks `Prezto` or `Oh My Zsh`. You should follow one of the two sections below.
-
-
-
-Install Oh My Zsh
-
-**Note**: You don't need this section if you installed `Prezto`.
-
-Install Oh My Zsh on top of zsh to get additional functionality:
-
-```
-$ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-```
-
 If you're still in the default shell, change default shell to zsh manually:
 
 ```
@@ -37,48 +17,9 @@ ZSH_THEME=pygmalion
 plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
 ```
 
-## env.sh
 
-To include `env.sh`, open `~/.zshrc` and add the following:
 
-```sh
-source ~/<path to file>/env.sh
-```
 
-This file comes with some pre-defined settings, **they are all optional**. Please review them before you use them as your configuration.
-
-```
-#!/bin/zsh
-
-# PATH
-export PATH="/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export EDITOR='subl -w'
-# export PYTHONPATH=$PYTHONPATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# Virtual Environment
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Owner
-export USER_NAME="YOUR NAME"
-eval "$(rbenv init -)"
-
-# FileSearch
-function f() { find . -iname "*$1*" ${@:2} }
-function r() { grep "$1" ${@:2} -R . }
-
-#mkdir and cd
-function mkcd() { mkdir -p "$@" && cd "$_"; }
-
-# Aliases
-alias cppcompile='c++ -std=c++11 -stdlib=libc++'
-
-# Use sublimetext for editing config files
-alias zshconfig="subl ~/.zshrc"
-alias envconfig="subl ~/projects/config/env.sh"
-```
 
 
 
