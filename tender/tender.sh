@@ -20,7 +20,7 @@ pretty_print "Here we go..."
 #Homebrew installation
 
 if ! command -v brew &>/dev/null; then
-  pretty_print "Installing Homebrew, an OSX package manager, follow the instructions..." 
+  pretty_print "Installing Homebrew" 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
@@ -168,9 +168,13 @@ chsh -s /usr/local/bin/zsh
 curl -L http://install.ohmyz.sh | sh
 cd ~/.oh-my-zsh && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+chsh -s /usr/local/bin/zsh
 
 #Now let's go for our ZSH config round
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 echo DEFAULT_USER=$DEFAULT_USER >> ~/.zshrc
 echo plugins=(git colored-man colorize github brew osx zsh-syntax-highlighting zsh-autosuggestions docker) >> ~/.zshrc
 pretty_print "We are done!...everthing looks good!"
+
+curl -L https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf > /Library/Fonts/DroidSansMonoPowerline.otf
+curl -L https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Solarized%20Dark%20-%20Patched.itermcolors > ~/Downloads/solarized-dark.itermcolors
