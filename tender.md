@@ -4,9 +4,9 @@
 
 Tender is an automated script that will enable you to setup your mac automatically.
 
-It uses a minimal config file, located in this repo at `/tender/.env.dist` that you can copy to `/tender/.env`
+It uses a minimal config file, located in this repo at `tender/.env.dist` that you can copy to `tender/.env`
 
-You can put your own values in this file and source it \(`. /tender/.env`\). This will enable tender to access your variables.
+You can put your own values in this file and source it \(`. tender/.env`\). This will enable tender to access your variables.
 
 Let's go through the different steps Tender follows
 
@@ -16,7 +16,7 @@ You need to install xCode command-line tools. So we will initiate the install fo
 
 You will be prompted for your password to gain sudo rights during the whole install script.
 
-### Homebrew 
+### Homebrew
 
 Install Homebrew and a set of formulaes defined in the script :
 
