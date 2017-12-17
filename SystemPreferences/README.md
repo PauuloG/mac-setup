@@ -13,10 +13,9 @@ Enable FileVault if not already enabled and prompt for password immediatly
   * Uncheck three finger drag
 
 * Scroll & Zoom
+
 * * Uncheck all apart from Zoom in and out
 * Set pointer speed to 4th to last step
-
-
 
 ## Keyboard
 

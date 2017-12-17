@@ -1,13 +1,5 @@
 # iTerm2
 
-[iTerm2](http://www.iterm2.com/) is an open source replacement for Apple's Terminal. It's highly customizable and comes with a lot of useful features.
-
-## Installation
-
-> **Note**: Instead of downloading iTerm from the website you can use [Homebrew](http://sourabhbajaj.com/mac-setup/Homebrew/) `brew cask install iterm2`
-
-You can download the app from [here](http://www.iterm2.com/). Once downloaded, drag and drop the **iTerm** application file into your **Applications** folder.
-
 ## Customization
 
 ### Colors and Font Settings
