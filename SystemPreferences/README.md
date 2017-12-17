@@ -27,8 +27,8 @@ Enable FileVault if not already enabled and prompt for password immediatly
   * Remove workspace auto-switching by running the following command:
 
 ```
-$ defaults write com.apple.dock workspaces-auto-swoosh -bool NO
-$ killall Dock
+defaults write com.apple.dock workspaces-auto-swoosh -bool NO
+killall Dock
 ```
 
 ## Finder
