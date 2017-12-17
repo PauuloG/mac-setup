@@ -5,5 +5,4 @@
 * [Tender](tender.md)
 * [iTerm2](iTerm/README.md)
 * [Vim](Vim/README.md)
-* [References](References/README.md)
 
