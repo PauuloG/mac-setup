@@ -32,6 +32,7 @@ Open up iTerm2 preferences -&gt; Profiles -&gt; Keys -&gt; Click on + icon \(add
 | ⌘→ | SEND ESC SEQ | OF |
 | ⌥← | SEND ESC SEQ | b |
 | ⌥→ | SEND ESC SEQ | f |
+| ⌥+delete | SEND HEX CODE | 0x1B 0x08 |
 
 
 
