@@ -40,6 +40,12 @@ killall Dock
   * Remove shared and tags
   * New finder window to open in the home directory
 
+Enable displaying of hidden files using
+```
+defaults write com.apple.finder AppleShowAllFiles YES
+killall Finder
+```
+
 ## Power
 
 * Set sleep after 1 minute 
@@ -47,6 +53,5 @@ killall Dock
 ## Menubar
 
 * Change battery to show percentage symbols
-
-
-
+* Display bluetooth in menu bar
+* Display sound volume in menu bar
