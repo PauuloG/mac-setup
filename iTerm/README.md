@@ -20,8 +20,8 @@ Open up iTerm2 preferences -&gt; Profiles -&gt; Keys -&gt; Click on + icon \(add
 
 | shortcut | action | send |
 | :---: | :---: | :---: |
-| ⌘← | SEND ESC SEQ | OH |
-| ⌘→ | SEND ESC SEQ | OF |
+| ⌘← (Warning : This key prevents default tab switching shortcut for iterm2) | SEND ESC SEQ | OH |
+| ⌘→ (Warning : This key prevents default tab switching shortcut for iterm2) | SEND ESC SEQ | OF |
 | ⌥← | SEND ESC SEQ | b |
 | ⌥→ | SEND ESC SEQ | f |
 | ⌥+delete | SEND HEX CODE | 0x1B 0x08 |
