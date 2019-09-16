@@ -4,7 +4,7 @@
 set -xe
 
 echo "Upgrade Xcode"
-#xcode-select --install
+xcode-select --install
 
 sudo -v
 
@@ -20,7 +20,7 @@ pretty_print "Here we go..."
 #Homebrew installation
 
 if ! command -v brew &>/dev/null; then
-  pretty_print "Installing Homebrew" 
+  pretty_print "Installing Homebrew"
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
@@ -39,21 +39,24 @@ pretty_print "Updating brew formulas"
 #Homebrew OSX libraries
 
 dev=(
-    coreutils
-    docker
-    findutils
-    git
-    graphicsmagick
-    heroku-toolbelt
-    imagemagick
-    jq
-    mackup
-    tree
-    vim
-    webkit2png
-    wget
-    zsh
-    zsh-syntax-highlighting
+  ansible
+  coreutils
+  docker
+  findutils
+  git
+  gnupg
+  graphicsmagick
+  jp
+  jq
+  mackup
+  socat
+  tree
+  vim
+  webkit2png
+  wget
+  zsh
+  zsh-completions
+  zsh-syntax-highlighting
 )
 
 echo "installing development binaries..."
@@ -68,43 +71,46 @@ brew link openssl --force
 pretty_print "Installing cask to install apps"
 	brew install cask
 
-pretty_print "Installing launchrocket to manage your homebrew formulas like a champ!"
-	brew cask install launchrocket
-	
 #Install apps
 apps=(
-    appcleaner
-    dashlane
-    dropbox
-    flux
-    franz
-    google-chrome
-    iterm2
-    qlcolorcode
-    qlmarkdown
-    qlprettypatch
-    qlstephen
-    quicklook-csv
-    quicklook-json
-    rocket
-    sequel-pro
-    spectacle
-    spotify
-    suspicious-package
-    the-unarchiver
-    transmission
-    transmit
-    vlc
-    visual-studio-code
+  1password
+  1password-cli
+  appcleaner
+  bartender
+  dropbox
+  google-chrome
+  iterm2
+  phpstorm
+  postico
+  postman
+  qlcolorcode
+  qlimagesize
+  qlmarkdown
+  qlprettypatch
+  qlstephen
+  qlvideo
+  quicklook-csv
+  quicklook-json
+  rocket
+  sequel-pro
+  slack
+  spectacle
+  spotify
+  the-unarchiver
+  transmission
+  transmit
+  ukelele
+  visual-studio-code
+  vlc
 )
 
 for app in "${apps[@]}"
 do
-	#printf "Installing %s\n" $app
+	printf "Installing %s\n" $app
 	#echo "Type Y to install: \c"
 	#read line
 	#if [ "$line" = Y ] || [ "$line" = y ]; then
-	brew cask install --appdir="/Applications" $app || 0
+	brew cask install --appdir="/Applications" $app || 0
 	#fi
 done
 
@@ -144,17 +150,17 @@ git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_USER_EMAIL
 
 #Generate github ssh keys
-echo "Generating SSH keys"
-ssh-keygen -t rsa -b 4096 -C  "$GIT_USER_EMAIL" -f ~/.ssh/id_rsa
-eval "$(ssh-agent -s)"
-ssh-add -K ~/.ssh/id_rsa
+# echo "Generating SSH keys"
+# ssh-keygen -t rsa -b 4096 -C  "$GIT_USER_EMAIL" -f ~/.ssh/id_rsa
+# eval "$(ssh-agent -s)"
+# ssh-add -K ~/.ssh/id_rsa
 
-echo <<HOSTS 
-Host *
- AddKeysToAgent yes
- UseKeychain yes
- IdentityFile ~/.ssh/id_rsa
-HOSTS > ~/.ssh/config
+# echo <<HOSTS
+# Host *
+#  AddKeysToAgent yes
+#  UseKeychain yes
+#  IdentityFile ~/.ssh/id_rsa
+# HOSTS > ~/.ssh/config
 
 #Install oh-my-zsh
 echo "Now badassify the terminal.."
@@ -174,3 +180,14 @@ pretty_print "We are done!...everthing looks good!"
 
 curl -L https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf > /Library/Fonts/DroidSansMonoPowerline.otf
 curl -L https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Solarized%20Dark%20-%20Patched.itermcolors > ~/Downloads/solarized-dark.itermcolors
+
+source ~/.zshrc
+
+# Installing powerlevel10k theme
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+sed -i -e 's/.*ZSH_THEME.*/ZSH_THEME=powerlevel10k/powerlevel10k/'
+
+
+
+
+
