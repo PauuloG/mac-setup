@@ -78,7 +78,6 @@ apps=(
   appcleaner
   bartender
   dropbox
-  flux
   google-chrome
   iterm2
   phpstorm
