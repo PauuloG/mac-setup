@@ -27,13 +27,10 @@ dev=(
     findutils
     git
     graphicsmagick
-    heroku-toolbelt
-    imagemagick
     jq
     mackup
     tree
     vim
-    webkit2png
     wget
     zsh
     zsh-syntax-highlighting
