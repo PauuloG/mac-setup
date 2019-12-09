@@ -5,15 +5,15 @@
 	<key>CFBundleIdentifier</key>
 	<string>org.sil.ukelele.keyboardlayout.alive_backtick_never_non-breaking_space</string>
 	<key>CFBundleName</key>
-	<string>alive_backtick_never_non-breaking_space</string>
+	<string>Unsaved Ukelele Document</string>
 	<key>CFBundleVersion</key>
 	<string></string>
-	<key>KLInfo_French copy</key>
+	<key>KLInfo_French no backtick no non-breaking space</key>
 	<dict>
 		<key>TICapsLockLanguageSwitchCapable</key>
 		<false/>
 		<key>TISInputSourceID</key>
-		<string>org.sil.ukelele.keyboardlayout.alive_backtick_never_non-breaking_space.frenchcopy</string>
+		<string>org.sil.ukelele.keyboardlayout.alive_backtick_never_non-breaking_space.frenchnobackticknonon-breakingspace</string>
 		<key>TISIntendedLanguage</key>
 		<string>fr</string>
 	</dict>
