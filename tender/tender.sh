@@ -55,6 +55,7 @@ dev=(
   vim
   webkit2png
   wget
+  yacreader
   zsh
   zsh-completions
   zsh-syntax-highlighting
