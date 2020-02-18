@@ -34,7 +34,7 @@ else
 fi
 
 pretty_print "Updating brew formulas"
-  	brew update
+brew update
 
 #Homebrew OSX libraries
 
@@ -46,6 +46,7 @@ dev=(
   git
   gnupg
   graphicsmagick
+  hh
   jp
   jq
   mackup
@@ -69,7 +70,9 @@ brew link openssl --force
 
 #Install brew cask
 pretty_print "Installing cask to install apps"
-	brew install cask
+brew install cask
+
+brew tap caskroom/fonts
 
 #Install apps
 apps=(
@@ -77,11 +80,23 @@ apps=(
   1password-cli
   appcleaner
   bartender
+  bitbar
+  docker
   dropbox
-  google-chrome
+  font-alegreya
+  font-clear-sans
+  font-fira-code
+  font-inconsolata
+  font-montserrat
+  font-open-sans
+  font-pt-sans
+  font-quattrocento-sans
+  font-raleway
+  font-roboto
+  font-source-sans-pro
+  font-ubuntu
   iterm2
-  phpstorm
-  postico
+  keyboard-maestro
   postman
   qlcolorcode
   qlimagesize
@@ -92,16 +107,14 @@ apps=(
   quicklook-csv
   quicklook-json
   rocket
-  sequel-pro
   slack
   spectacle
   spotify
   the-unarchiver
-  transmission
-  transmit
   ukelele
   visual-studio-code
   vlc
+  zoomus
 )
 
 for app in "${apps[@]}"
@@ -113,35 +126,6 @@ do
 	brew cask install --appdir="/Applications" $app || 0
 	#fi
 done
-
-brew tap caskroom/fonts
-brew cask install font-hack
-
-#Installing fonts
-pretty_print "Installing some caskroom/fonts..."
-brew tap caskroom/fonts
-
-fonts=(
-  font-m-plus
-  font-clear-sans
-  font-roboto
-  font-open-sans
-  font-source-sans-pro
-  font-lobster
-  font-alegreya
-  font-montserrat
-  font-inconsolata
-  font-pt-sans
-  font-quattrocento-sans
-  font-quicksand
-  font-raleway
-  font-sorts-mill-goudy
-  font-ubuntu
-)
-
-#Install fonts
-pretty_print "Installing the fonts..."
-brew cask install ${fonts[@]}
 
 #Install and config git
 echo "Git Config"
@@ -169,13 +153,13 @@ chsh -s /usr/local/bin/zsh
 curl -L http://install.ohmyz.sh | sh
 cd ~/.oh-my-zsh && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-chsh -s /usr/local/bin/zsh
+sudo chsh -s /usr/local/bin/zsh
 
 #Now let's go for our ZSH config round
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-echo DEFAULT_USER=$DEFAULT_USER >> ~/.zshrc
-echo "plugins=(git colored-man colorize github brew osx zsh-syntax-highlighting zsh-autosuggestions docker)" >> ~/.zshrc
-echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# echo DEFAULT_USER=$DEFAULT_USER >> ~/.zshrc
+# echo "plugins=(git colored-man colorize github brew osx zsh-syntax-highlighting zsh-autosuggestions docker)" >> ~/.zshrc
+# echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 pretty_print "We are done!...everthing looks good!"
 
 curl -L https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf > /Library/Fonts/DroidSansMonoPowerline.otf
@@ -185,7 +169,7 @@ source ~/.zshrc
 
 # Installing powerlevel10k theme
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-sed -i -e 's/.*ZSH_THEME.*/ZSH_THEME=powerlevel10k/powerlevel10k/'
+# sed -i -e 's/.*ZSH_THEME.*/ZSH_THEME=powerlevel10k/powerlevel10k/'
 
 
 
